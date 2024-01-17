@@ -5,11 +5,12 @@ import input.DogDataInput;
 import model.Dog;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
 import output.DogDataOutput;
 
 @Mapper(componentModel = "spring")
 public interface DogMapper {
-    @Mapping({
+    @Mappings({
             @Mapping(target = "name",source = "dogDataInput.name"),
             @Mapping(target = "style",source = "dogDataInput.style"),
             @Mapping(target = "color",source = "dogDataInput.color"),
@@ -20,7 +21,7 @@ public interface DogMapper {
     })
     Dog toDog(DogDataInput dogDataInput,Long id);
 
-    @Mapping({
+    @Mappings({
             @Mapping(target = "name",source = "name"),
             @Mapping(target = "style",source = "style"),
             @Mapping(target = "color",source = "color"),
